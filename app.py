@@ -4,8 +4,11 @@ app = Flask(__name__)
 
 # Load the data
 data = []
-with open('data.json') as f:
-    data = json.load(f)
+try:
+    with open('data.json') as f:
+        data = json.load(f)
+except Exception as e:
+    print(e)
 
 # Define the recommendation function
 def recommend_content(user_id):
